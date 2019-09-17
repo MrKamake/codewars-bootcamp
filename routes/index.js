@@ -1,9 +1,17 @@
 const express = require('express');
 const router = express.Router();
+const Problem = require('../models/Problem');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index', { title: '바닐라코딩' });
+  // if (req.isAuthenticated()) {
+    Problem.find((err, problems) => {
+      console.log(problems);
+      res.render('index', { problems });
+    });
+  // } else {
+  //   res.status(301).redirect('/login');
+  // }
 });
 
 module.exports = router;

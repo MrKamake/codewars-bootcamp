@@ -10,9 +10,13 @@
 
     <div class="problems">
       <% problems.forEach(problem => { %>
-      <div><%= problem.title %></div>
-      <div>완성한 사람: <%= problem.completed_users %></div>
-      <div>난이도: <%= problem.difficulty_level %></div>
+        <div class="problem-contents">
+          <a href="/problems/<%= problem._id %>" class="problem-link" role="button">
+          <div><%= problem.title %></div>
+          <div>완성한 사람: <%= problem.completed_users %></div>
+          <div>난이도: <%= problem.difficulty_level %></div>
+          </a>
+        </div>
       <% }); %>
       </div>
   </body>

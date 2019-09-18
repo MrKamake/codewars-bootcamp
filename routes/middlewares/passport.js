@@ -10,23 +10,26 @@ module.exports = function passport(passport) {
         clientSecret: process.env.CLIENT_SECRET,
         callbackURL: process.env.CALLBACK_URL
       },
-      async function(accessToken, refreshToken, profile, cb) {
-        const newUser = new User({
-          user_id: profile.id,
-          username: profile.username
-        });
-        await newUser.save();
+      async (accessToken, refreshToken, profile, cb) => {
+        const hasUser = await User.exists({ user_id: profile.id });
+        if (!hasUser) {
+          const newUser = new User({
+            user_id: profile.id,
+            username: profile.username
+          });
+          await newUser.save();
+        }
 
         return cb(null, profile);
       }
     )
   );
 
-  passport.serializeUser(function(user, cb) {
+  passport.serializeUser((user, cb) => {
     cb(null, user);
   });
 
-  passport.deserializeUser(function(user, cb) {
+  passport.deserializeUser((user, cb) => {
     cb(null, user);
   });
 };

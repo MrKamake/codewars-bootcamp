@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+
+.problems {
+  display: inline-block;
+}
+
+.problem-contents {
+  display: inline-block;
+  border: solid;
+}
+
+.problem-link {
+  text-decoration: none;
+  color: black;
+}

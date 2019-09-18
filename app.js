@@ -7,6 +7,7 @@ const userPassport = require('./routes/middlewares/passport');
 
 const index = require('./routes/index');
 const login = require('./routes/login');
+const problem = require('./routes/problem');
 
 require('dotenv').config();
 
@@ -52,6 +53,7 @@ app.get('/logout', function(req, res, next) {
   req.logOut();
   res.redirect('/login');
 });
+app.use('/problems', problem);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

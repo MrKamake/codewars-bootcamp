@@ -1,13 +1,17 @@
 const express = require('express');
-const mongoose = require('mongoose');
-require('dotenv').config();
 
-const session = require('express-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const userPassport = require('./routes/middlewares/passport');
+
 const index = require('./routes/index');
 const login = require('./routes/login');
-const bodyParser = require('body-parser');
-const User = require('./models/User')
+
+require('dotenv').config();
+
+const mongoose = require('mongoose');
+const db = mongoose.connection;
 
 mongoose.connect(`${process.env.LOCAL_HOST_URL}`, {
   useNewUrlParser: true,
@@ -16,47 +20,18 @@ mongoose.connect(`${process.env.LOCAL_HOST_URL}`, {
   useCreateIndex: true
 });
 
-const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
   console.log('Connect MongoDB');
 });
 
-const GitHubStrategy = require('passport-github').Strategy;
-
-passport.use(
-  new GitHubStrategy(
-    {
-      clientID: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: process.env.CALLBACK_URL
-    },
-    async function(accessToken, refreshToken, profile, cb) {
-      console.log(profile);
-
-      const newUser = new User({user_id: profile.id, username: profile.username});
-      await newUser.save();
-
-      return cb(null, profile);
-    }
-  )
-);
-
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
-});
-
-passport.deserializeUser(function(user, cb) {
-  cb(null, user);
-});
-
 const app = express();
 
-app.set('views', './views');
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
 app.use(
   session({
     secret: process.env.SECRET_SESSION,
@@ -65,9 +40,11 @@ app.use(
     saveUninitialized: true
   })
 );
-app.use(express.static('public'));
+
 app.use(passport.initialize());
 app.use(passport.session()); // 로그인 세션 유지
+
+userPassport(passport);
 
 app.use('/', index);
 app.use('/login', login);

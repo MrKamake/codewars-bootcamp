@@ -22,7 +22,7 @@ const ProblemSchema = new mongoose.Schema({
   description: {
     type: String
   },
-  tests: {
+  tests: [{
     code: {
       type: String,
       require: true
@@ -31,7 +31,7 @@ const ProblemSchema = new mongoose.Schema({
       type: Number,
       require: true
     }
-  }
+  }]
 });
 
 module.exports = mongoose.model('Problem', ProblemSchema);

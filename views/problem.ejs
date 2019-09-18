@@ -16,11 +16,11 @@
       <div>완성한 사람: <%= problem.completed_users %></div>
       <div>난이도: <%= problem.difficulty_level %></div>
       <div><%= problem.description %></div>
-    </div>
-    <form method="POST" action="../problems/<%= problem._id%>" class="code-form">
-        <textarea id="code-area" name="code"></textarea>
-        <input class="code-submit" type="submit" value="submit" />
+      <form method="POST" action="../problems/<%= problem._id%>/solution" class="code-form">
+          <textarea id="code-area" name="solution"></textarea>
+          <input class="code-submit" type="submit" value="submit" />
       </form>
+    </div>
   </body>
 <script>
     let editor = CodeMirror.fromTextArea(document.getElementById('code-area'), {

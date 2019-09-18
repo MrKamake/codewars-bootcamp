@@ -6,8 +6,7 @@ exports.getOne = async function(req, res, next) {
     const problem = await Problem.findOne({ _id: req.params.problem_id });
     res.render('problem', { problem });
   } catch (err) {
-    next();
-    res.status(500).json({ errMessage: 'Internal Server Error' });
+    next(err);
   }
 };
 
@@ -16,7 +15,11 @@ exports.examineCode = async function(req, res, next) {
     const testProblem = await Problem.findById(req.params.problem_id);
     const results = testProblem.tests.map(test => {
       const script = vm.createScript(req.body.solution + test.code);
-      return script.runInNewContext(script) === test.solution;
+      if (script.runInNewContext(script) === test.solution) {
+        return true;
+      } else {
+        return script.runInNewContext(script);
+      }
     });
 
     const isFailed = results.filter(result => result === false);

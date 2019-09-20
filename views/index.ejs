@@ -7,23 +7,34 @@
 
   <body>
     <header class="logo-box">
-      <img src="https://images.vexels.com/media/users/3/143424/isolated/preview/2aa6cd7edd894a7cefa4eaf0f5916ee9-lightning-bolt-small-by-vexels.png" />
-      <a href="/" class="logo-text" >codewars</a>
+      <img
+        src="https://images.vexels.com/media/users/3/143424/isolated/preview/2aa6cd7edd894a7cefa4eaf0f5916ee9-lightning-bolt-small-by-vexels.png"
+      />
+      <a href="/" class="logo-text">codewars</a>
       <div class="header-login-box">
         <div class="header-login">
-          <a href="/logout" class="header-login-text" >logout</a>
+          <a href="/logout" class="header-login-text">logout</a>
         </div>
       </div>
     </header>
- 
-    <div class="second-title">- 코딩 전쟁이 일어난다. 모든 대원들, 전투 준비!</div>
+
+    <div class="second-title">
+      - 코딩 전쟁이 일어난다. 모든 대원들, 전투 준비!
+    </div>
     <div class="problems">
       <% problems.forEach(problem => { %>
-        <a href="/problems/<%= problem._id %>" class="problems-contents" role="button">
-          <div class="problems-title"><%= problem.title %></div>
-          <div class="problems-completor"><%= problem.completed_users ? problem.completed_users : 0; %> completed</div>
-          <div class="problems-level">Level <%= problem.difficulty_level %></div>
-        </a>
+      <a
+        href="/problems/<%= problem._id %>"
+        class="problems-contents"
+        role="button"
+      >
+        <div class="problems-title"><%= problem.title %></div>
+        <div class="problems-completor">
+          <%= problem.completed_users ? problem.completed_users : 0; %>
+          completed
+        </div>
+        <div class="problems-level">Level <%= problem.difficulty_level %></div>
+      </a>
       <% }); %>
     </div>
 
@@ -33,11 +44,12 @@
       <li>Super Supporter: MyeongWon Cho</li>
       <li>Producer: SeongJoon Kim</li>
       <li>Refferance: codewars(www.codewars.com)</li>
-      
+
       <a class="vanilla-coding-logo" href="https://www.vanillacoding.co">
-        <img src="https://d1sk7biawly96w.cloudfront.net/images/vc_logo@2x.png" />
+        <img
+          src="https://d1sk7biawly96w.cloudfront.net/images/vc_logo@2x.png"
+        />
       </a>
     </footer>
   </body>
-
 </html>

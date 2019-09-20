@@ -1,7 +1,8 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  background-color: #DEE0E7;
+  background-color: #dee0e7;
 }
 
 body {
@@ -74,7 +75,7 @@ body {
   margin: 10px;
   padding-left: 15px;
   text-decoration: none;
-  color: #C9C9C9;
+  color: #c9c9c9;
   font-size: 1.3rem;
 }
 
@@ -89,7 +90,7 @@ body {
   margin: 10px;
   padding: 8px 15px;
   text-decoration: none;
-  color: #C9C9C9;
+  color: #c9c9c9;
   font-size: 1.3rem;
   border-radius: 8px;
   background: black;
@@ -131,7 +132,7 @@ body {
   bottom: 0;
   left: 0;
   padding: 20px;
-  color: #F7CC36;
+  color: #f7cc36;
 }
 
 .problems-completor {
@@ -139,7 +140,7 @@ body {
   bottom: 0;
   right: 0;
   padding: 20px;
-  color: #F7CC36;
+  color: #f7cc36;
 }
 
 .problem-box {
@@ -154,20 +155,20 @@ body {
 }
 
 .problem-title {
-  padding: 20px 0 20px 25px; 
+  padding: 20px 0 20px 25px;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #F7CC36;
+  color: #f7cc36;
 }
 
 .problem-level {
   padding: 10px 0 10px 25px;
-  color: black;  
+  color: black;
 }
 
 .problem-completor {
   padding: 10px 0 10px 25px;
-  color: black;  
+  color: black;
 }
 
 .problem-description {
@@ -175,7 +176,7 @@ body {
   line-height: 41px;
   width: 700px;
   font-size: 1.2rem;
-  color: #DEE0E7;  
+  color: #dee0e7;
 }
 
 .code-form {
@@ -187,7 +188,7 @@ body {
   width: 100%;
   padding: 20px;
   font-size: 1.2rem;
-  background-color: #F7CC36;
+  background-color: #f7cc36;
 }
 
 .result-msg {
@@ -197,9 +198,9 @@ body {
   font-size: 4rem;
 }
 
-.cheer-up-text {  
+.cheer-up-text {
   display: block;
-  text-align: right;
+  text-align: left;
   padding: 23px;
   font-size: 1.2rem;
 }
@@ -225,7 +226,7 @@ body {
   font-size: 1.1rem;
 }
 
-.test-error-result { 
+.test-error-result {
   padding: 40px;
   padding-bottom: 300px;
   font-size: 1.6rem;
@@ -240,7 +241,7 @@ body {
   padding: 8px;
   border-radius: 7px;
   font-size: 1.2rem;
-  background-color: #F7CC36;
+  background-color: #f7cc36;
 }
 
 .error-msg {
@@ -261,7 +262,7 @@ body {
 footer {
   position: fixed;
   bottom: 0;
-  color: #C9C9C9;
+  color: #c9c9c9;
   padding-top: 10px;
   padding-left: 20px;
   width: 100%;

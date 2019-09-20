@@ -2,42 +2,44 @@
 <html>
   <head>
     <title>Codewars</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
     <header class="logo-box">
-      <img src="https://images.vexels.com/media/users/3/143424/isolated/preview/2aa6cd7edd894a7cefa4eaf0f5916ee9-lightning-bolt-small-by-vexels.png" />
-      <a href="/" class="logo-text" >codewars</a>
+      <img
+        src="https://images.vexels.com/media/users/3/143424/isolated/preview/2aa6cd7edd894a7cefa4eaf0f5916ee9-lightning-bolt-small-by-vexels.png"
+      />
+      <a href="/" class="logo-text">codewars</a>
       <div class="header-login-box">
         <div class="header-login">
-          <a href="/logout" class="header-login-text" >logout</a>
+          <a href="/logout" class="header-login-text">logout</a>
         </div>
       </div>
     </header>
 
     <div class="failure">
       <% if (locals.err) { %>
-        <div class="test-error-result"><%= err %></div>
+      <div class="test-error-result"><%= err %></div>
       <% } else { %>
-        <div class="result-msg fail-msg">Fail..</div>
-        <div class="cheer-up-text">아쉽네요.. 다시 한번 해볼까요?</div>
-        <% if (resultMsgs.success.length) { %>
-          <div class="msg-box">
-            <div class="msg success-msg">success</div>
-            <% resultMsgs.success.forEach(string => { %>
-              <div class="test-result"><%= string %></div>
-            <% }); %>
-            </div>
-          <% } %>
-          <div class="msg-box">
-            <div class="msg fail-msg">failure</div>
-          <% resultMsgs.failure.forEach(string => { %>
-            <div class="test-result"><%= string %></div>
-          <% }); %>
-        </div>
+      <div class="result-msg fail-msg">Fail..</div>
+      <div class="cheer-up-text">아쉽네요.. 다시 한번 해볼까요?</div>
+      <% if (resultMsgs.success.length) { %>
+      <div class="msg-box">
+        <div class="msg success-msg">success</div>
+        <% resultMsgs.success.forEach(string => { %>
+        <div class="test-result"><%= string %></div>
+        <% }); %>
+      </div>
+      <% } %>
+      <div class="msg-box">
+        <div class="msg fail-msg">failure</div>
+        <% resultMsgs.failure.forEach(string => { %>
+        <div class="test-result"><%= string %></div>
+        <% }); %>
+      </div>
       <% } %>
     </div>
-    
+
     <a class="back-button">재도전</a>
 
     <footer>
@@ -46,12 +48,15 @@
       <li>Super Supporter: MyeongWon Cho</li>
       <li>Producer: SeongJoon Kim</li>
       <li>Refferance: codewars(www.codewars.com)</li>
-      
+
       <a class="vanilla-coding-logo" href="https://www.vanillacoding.co">
-        <img src="https://d1sk7biawly96w.cloudfront.net/images/vc_logo@2x.png" />
+        <img
+          src="https://d1sk7biawly96w.cloudfront.net/images/vc_logo@2x.png"
+        />
       </a>
-    </footer>    
+    </footer>
   </body>
+
   <script>
     const btnBack = document.querySelector('.back-button');
     btnBack.addEventListener('click', () => {

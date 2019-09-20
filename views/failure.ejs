@@ -17,7 +17,7 @@
 
     <div class="failure">
       <% if (locals.err) { %>
-        <%= err %>
+        <div class="test-error-result"><%= err %></div>
       <% } else { %>
         <div class="result-msg fail-msg">Fail..</div>
         <div class="cheer-up-text">아쉽네요.. 다시 한번 해볼까요?</div>
@@ -25,14 +25,14 @@
           <div class="msg-box">
             <div class="msg success-msg">success</div>
             <% resultMsgs.success.forEach(string => { %>
-              <div><%= string %></div>
+              <div class="test-result"><%= string %></div>
             <% }); %>
             </div>
           <% } %>
           <div class="msg-box">
             <div class="msg fail-msg">failure</div>
           <% resultMsgs.failure.forEach(string => { %>
-            <div><%= string %></div>
+            <div class="test-result"><%= string %></div>
           <% }); %>
         </div>
       <% } %>

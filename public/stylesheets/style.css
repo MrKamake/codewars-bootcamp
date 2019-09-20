@@ -172,6 +172,18 @@ body {
   font-size: 1.5rem;
 }
 
+.test-result {
+  padding: 20px;
+  font-size: 1.1rem;
+}
+
+.test-error-result { 
+  padding: 40px;
+  padding-bottom: 300px;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
 .back-button {
   display: block;
   margin: auto;
@@ -181,6 +193,19 @@ body {
   border-radius: 7px;
   font-size: 1.2rem;
   background-color: #F7CC36;
+}
+
+.error-msg {
+  padding-left: 30px;
+}
+
+.error-status {
+  padding-left: 30px;
+}
+
+.error-stack-box {
+  width: 910px;
+  padding: 30px;
 }
 
 footer {

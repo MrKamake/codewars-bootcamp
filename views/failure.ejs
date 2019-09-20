@@ -6,10 +6,24 @@
   </head>
   <body>
     <h1>Codewars</h1>
-    <h2>전투 훈련 본격 시작!</h2>
+    <h2>전투 훈련 시작!</h2>
 
     <div class="failure">
+      <% if (locals.err) { %>
+        <%= err %>
+      <% } else { %>
       <div>Failure!</div>
+      <% if (resultMsgs.success.length) { %>
+      <div>success :</div>
+      <% resultMsgs.success.forEach(string => { %>
+        <div><%= string %></div>
+      <% }); %>
+      <% } %>
+      <div>failure :</div>
+      <% resultMsgs.failure.forEach(string => { %>
+        <div><%= string %></div>
+      <% }); %>
+      <% } %>
     </div>
   </body>
 

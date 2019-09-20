@@ -5,7 +5,7 @@ const Problem = require('../models/Problem');
 /* GET home page. */
 router.get('/', (req, res, next) => {
   Problem.find((err, problems) => {
-    res.render('index', { problems });
+    res.render('index', { problems, user: req.user });
   });
 });
 

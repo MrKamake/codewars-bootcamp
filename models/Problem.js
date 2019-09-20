@@ -28,7 +28,7 @@ const ProblemSchema = new mongoose.Schema({
       require: true
     },
     solution: {
-      type: Number,
+      type: mongoose.Schema.Types.Mixed,
       require: true
     }
   }]

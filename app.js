@@ -43,7 +43,7 @@ app.use(
 );
 
 app.use(passport.initialize());
-app.use(passport.session()); // 로그인 세션 유지
+app.use(passport.session());
 
 userPassport(passport);
 
@@ -70,6 +70,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
+  if (err.status === 500) message = 'Internal Server Error';
   res.render('error');
 });
 

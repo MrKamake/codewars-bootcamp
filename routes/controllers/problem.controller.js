@@ -3,33 +3,41 @@ const vm = require('vm');
 
 exports.getOne = async function(req, res, next) {
   try {
-    const problem = await Problem.findOne({ _id: req.params.problem_id });
-    res.render('problem', { problem });
+    const problem = await Problem.findById(req.params.problem_id);
+    res.render('problem', { problem, user: req.user });
   } catch (err) {
-    next(err);
+    next();
   }
 };
 
 exports.examineCode = async function(req, res, next) {
+  const resultMsgs = { success: [], failure: [] };
   try {
-    const testProblem = await Problem.findById(req.params.problem_id);
-    const results = testProblem.tests.map(test => {
-      const script = vm.createScript(req.body.solution + test.code);
-      if (script.runInNewContext(script) === test.solution) {
-        return true;
+    const problem = await Problem.findById(req.params.problem_id);
+    const userSolutionCode = req.body.solution;
+    problem.tests.forEach(test => {
+      const script = new vm.Script(`${userSolutionCode} ${test.code}`);
+      const context = vm.createContext({});
+      const result = script.runInContext(context, { timeout: 1000 });
+
+      if (result === test.solution) {
+        resultMsgs.success.push(`[Test code ${test.code}]`);
       } else {
-        return script.runInNewContext(script);
+        resultMsgs.failure.push(
+          `[Test code ${test.code}] Expected: ${test.solution}, Instead got: ${result}`
+        );
       }
     });
-
-    const isFailed = results.filter(result => result === false);
-
-    if (isFailed.length) {
-      res.render('failure');
-    } else {
-      res.render('success');
+    if (resultMsgs.failure.length) {
+      throw new Error();
     }
+    
+    res.render('success');
   } catch (err) {
-    next(err);
+    if (resultMsgs.failure.length) {
+      res.render('failure', { resultMsgs });
+    } else {
+      res.render('failure', { err });
+    }
   }
 };

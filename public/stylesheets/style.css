@@ -1,18 +1,117 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #DEE0E7;
 }
 
-a {
-  color: #00B7FF;
+body {
+  padding-bottom: 184px;
+}
+
+.logo-box {
+  display: inline-block;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+}
+
+.logo-box > img {
+  width: 40px;
+  padding: 5px 0 0 5px;
+}
+
+.logo-text {
+  display: inline-block;
+  width: 100px;
+  padding-top: 13px;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+}
+
+.login-box {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  left: 40%;
+  top: 17%;
+  border-radius: 10px;
+  background-color: rgb(131, 131, 131);
+}
+
+.login-text {
+  position: absolute;
+  top: 17%;
+  left: 33%;
+  font-size: 3.3rem;
+  color: white;
+}
+
+.github-login {
+  position: absolute;
+  top: 73%;
+  left: 28%;
+  width: 256px;
+  height: 58px;
+  margin: -50px 0 0 -50px;
+  border-radius: 10px;
+  background: black;
+}
+
+.github-login > img {
+  display: inline-block;
+  width: 38px;
+  padding: 10px;
+  padding-left: 25px;
+}
+
+.github-text {
+  position: absolute;
+  width: 128px;
+  top: 9px;
+  margin: 10px;
+  padding-left: 15px;
+  text-decoration: none;
+  color: #C9C9C9;
+  font-size: 1.3rem;
+}
+
+.header-login {
+  position: absolute;
+  top: 6.3%;
+  right: 1%;
+  width: 102px;
+  height: 41px;
+  margin: -50px 0 0 -50px;
+  border-radius: 10px;
+  background: black;
+}
+
+.header-login-text {
+  position: absolute;
+  width: 128px;
+  margin: 10px;
+  padding-left: 15px;
+  text-decoration: none;
+  color: #C9C9C9;
+  font-size: 1.3rem;
 }
 
 .problems {
   display: inline-block;
 }
 
+.second-title {
+  padding: 10px 0 10px 20px;
+  font-size: 1.2rem;
+  color: rgb(131, 131, 131);
+}
+
 .problem-contents {
   display: inline-block;
+  width: 300px;
+  height: 150px;
   border: solid;
 }
 
@@ -20,3 +119,20 @@ a {
   text-decoration: none;
   color: black;
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  color: #C9C9C9;
+  padding: 20px;
+  padding-left: 30px;
+  width: 97%;
+  background-color: rgb(49, 49, 49);
+  left: 0;
+}
+
+.vanilla-coding-logo > img {
+  margin-top: 10px;
+  width: 220px;
+}
+

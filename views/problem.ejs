@@ -3,13 +3,27 @@
   <head>
     <title>Codewars</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="/lib/codemirror.js"></script>
-    <link rel="stylesheet" href="/lib/codemirror.css">
-    <script src="/lib/javascript.js"></script>
+    <script src="/lib/codemirror/codemirror-5.48.4.js"></script>
+    <link rel="stylesheet" href="/lib/codemirror/codemirror-5.48.4.css">
+    <link rel="stylesheet" href="/lib/codemirror/codemirror-theme.css">
+    <script src="/lib/codemirror/codemirror-javascript-mode.js"></script>
   </head>
   <body>
-    <h1>Codewars</h1>
-    <h2>전투 훈련 본격 시작!</h2>
+    <div>
+      <div class="logo-box">
+        <img src="https://images.vexels.com/media/users/3/143424/isolated/preview/2aa6cd7edd894a7cefa4eaf0f5916ee9-lightning-bolt-small-by-vexels.png" />
+        <div class="logo-text"><a href="/" >Codewars</a></div>
+        <div>전투 훈련 시작!</div>
+        <div class="login-box">
+          <div class="github-login">
+            <% if (user) { %>
+              <div><a href="/logout" >logout</a></div>
+            <% } else { %>
+              <div><a href="/login/github" class="github-text" >Login</a></div>
+            <% } %>
+          </div>
+      </div>
+    </div>
 
     <div class="problem">
       <div><%= problem.title %></div>
@@ -27,9 +41,9 @@
       mode: 'javascript',
       lineNumbers: true,
       linkWrapping: true,
-      matchBrackets: true
+      theme: 'material'
     });
-    editor.getDoc().setValue(`function soultion(a){\n  return a;\n}`);
+    editor.getDoc().setValue(`function solution(a){\n \n return a;\n}`);
     editor.setSize(null, 460);
   </script>
 </html>

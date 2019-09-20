@@ -19,22 +19,26 @@
       <% if (locals.err) { %>
         <%= err %>
       <% } else { %>
-        <div class="result-msg fail-msg">fail..</div>
-        <div class="">아쉽네요.. 다시 한번 해볼까요?</div>
+        <div class="result-msg fail-msg">Fail..</div>
+        <div class="cheer-up-text">아쉽네요.. 다시 한번 해볼까요?</div>
         <% if (resultMsgs.success.length) { %>
-          <div>success :</div>
-          <% resultMsgs.success.forEach(string => { %>
+          <div class="msg-box">
+            <div class="msg success-msg">success</div>
+            <% resultMsgs.success.forEach(string => { %>
+              <div><%= string %></div>
+            <% }); %>
+            </div>
+          <% } %>
+          <div class="msg-box">
+            <div class="msg fail-msg">failure</div>
+          <% resultMsgs.failure.forEach(string => { %>
             <div><%= string %></div>
           <% }); %>
-        <% } %>
-          <div>failure :</div>
-        <% resultMsgs.failure.forEach(string => { %>
-          <div><%= string %></div>
-        <% }); %>
+        </div>
       <% } %>
     </div>
     
-    <p><a class="back-button">재도전</a></p>
+    <a class="back-button">재도전</a>
 
     <footer>
       <li>General Supervisor: Ken Huh</li>

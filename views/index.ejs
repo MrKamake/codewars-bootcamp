@@ -11,25 +11,19 @@
       <a href="/" class="logo-text" >codewars</a>
       <div class="header-login-box">
         <div class="header-login">
-          <% if (user) { %>
-            <a href="/logout" class="header-login-text" >logout</a>
-          <% } else { %>
-            <a href="/login/github" class="header-login-text" >Login</a>
-          <% } %>
+          <a href="/logout" class="header-login-text" >logout</a>
         </div>
       </div>
     </header>
  
+    <div class="second-title">- 코딩 전쟁이 일어난다. 모든 대원들, 전투 준비!</div>
     <div class="problems">
-      <div class="second-title">- 코딩 전쟁이 일어난다. 모든 대원들, 전투 준비!</div>
       <% problems.forEach(problem => { %>
-        <div class="problem-contents">
-          <a href="/problems/<%= problem._id %>" class="problem-link" role="button">
-            <div><%= problem.title %></div>
-            <div>완성한 사람: <%= problem.completed_users %></div>
-            <div>난이도: <%= problem.difficulty_level %></div>
-          </a>
-        </div>
+        <a href="/problems/<%= problem._id %>" class="problem-contents" role="button">
+          <div class="problem-title"><%= problem.title %></div>
+          <div class="problem-completor"><%= problem.completed_users ? problem.completed_users : 0; %> completed</div>
+          <div class="problem-level">Level <%= problem.difficulty_level %></div>
+        </a>
       <% }); %>
     </div>
 

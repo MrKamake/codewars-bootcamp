@@ -4,7 +4,7 @@ const vm = require('vm');
 exports.getOne = async function(req, res, next) {
   try {
     const problem = await Problem.findById(req.params.problem_id);
-    res.render('problem', { problem, user: req.user });
+    res.render('problem', { problem });
   } catch (err) {
     next();
   }
@@ -21,10 +21,10 @@ exports.examineCode = async function(req, res, next) {
       const result = script.runInContext(context, { timeout: 1000 });
 
       if (result === test.solution) {
-        resultMsgs.success.push(`[Test code ${test.code}]`);
+        resultMsgs.success.push(`[${test.code}]`);
       } else {
         resultMsgs.failure.push(
-          `[Test code ${test.code}] Expected: ${test.solution}, Instead got: ${result}`
+          `[${test.code}] Expected: ${test.solution}, instead got: ${result}`
         );
       }
     });

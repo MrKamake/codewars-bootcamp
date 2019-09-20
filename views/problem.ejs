@@ -9,22 +9,17 @@
     <script src="/lib/codemirror/codemirror-javascript-mode.js"></script>
   </head>
   <body>
-    <div>
-      <div class="logo-box">
-        <img src="https://images.vexels.com/media/users/3/143424/isolated/preview/2aa6cd7edd894a7cefa4eaf0f5916ee9-lightning-bolt-small-by-vexels.png" />
-        <div class="logo-text"><a href="/" >Codewars</a></div>
-        <div>전투 훈련 시작!</div>
-        <div class="login-box">
-          <div class="github-login">
-            <% if (user) { %>
-              <div><a href="/logout" >logout</a></div>
-            <% } else { %>
-              <div><a href="/login/github" class="github-text" >Login</a></div>
-            <% } %>
-          </div>
+    <header class="logo-box">
+      <img src="https://images.vexels.com/media/users/3/143424/isolated/preview/2aa6cd7edd894a7cefa4eaf0f5916ee9-lightning-bolt-small-by-vexels.png" />
+      <a href="/" class="logo-text" >codewars</a>
+      <div class="header-login-box">
+        <div class="header-login">
+          <a href="/logout" class="header-login-text" >logout</a>
+        </div>
       </div>
-    </div>
+    </header>
 
+    <div>전투 훈련 시작!</div>
     <div class="problem">
       <div><%= problem.title %></div>
       <div>완성한 사람: <%= problem.completed_users %></div>
@@ -35,6 +30,18 @@
           <input class="code-submit" type="submit" value="submit" />
       </form>
     </div>
+
+    <footer>
+      <li>General Supervisor: Ken Huh</li>
+      <li>Assistant Supervisor: kizmo</li>
+      <li>Super Supporter: MyeongWon Cho</li>
+      <li>Producer: SeongJoon Kim</li>
+      <li>Refferance: codewars(www.codewars.com)</li>
+      
+      <a class="vanilla-coding-logo" href="https://www.vanillacoding.co">
+        <img src="https://d1sk7biawly96w.cloudfront.net/images/vc_logo@2x.png" />
+      </a>
+    </footer>
   </body>
 <script>
     let editor = CodeMirror.fromTextArea(document.getElementById('code-area'), {

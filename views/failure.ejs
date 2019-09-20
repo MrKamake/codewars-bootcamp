@@ -5,26 +5,53 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>Codewars</h1>
-    <h2>전투 훈련 시작!</h2>
+    <header class="logo-box">
+      <img src="https://images.vexels.com/media/users/3/143424/isolated/preview/2aa6cd7edd894a7cefa4eaf0f5916ee9-lightning-bolt-small-by-vexels.png" />
+      <a href="/" class="logo-text" >codewars</a>
+      <div class="header-login-box">
+        <div class="header-login">
+          <a href="/logout" class="header-login-text" >logout</a>
+        </div>
+      </div>
+    </header>
 
     <div class="failure">
       <% if (locals.err) { %>
         <%= err %>
       <% } else { %>
-      <div>Failure!</div>
-      <% if (resultMsgs.success.length) { %>
-      <div>success :</div>
-      <% resultMsgs.success.forEach(string => { %>
-        <div><%= string %></div>
-      <% }); %>
-      <% } %>
-      <div>failure :</div>
-      <% resultMsgs.failure.forEach(string => { %>
-        <div><%= string %></div>
-      <% }); %>
+        <div class="result-msg fail-msg">fail..</div>
+        <div class="">아쉽네요.. 다시 한번 해볼까요?</div>
+        <% if (resultMsgs.success.length) { %>
+          <div>success :</div>
+          <% resultMsgs.success.forEach(string => { %>
+            <div><%= string %></div>
+          <% }); %>
+        <% } %>
+          <div>failure :</div>
+        <% resultMsgs.failure.forEach(string => { %>
+          <div><%= string %></div>
+        <% }); %>
       <% } %>
     </div>
-  </body>
+    
+    <p><a class="back-button">재도전</a></p>
 
+    <footer>
+      <li>General Supervisor: Ken Huh</li>
+      <li>Assistant Supervisor: kizmo</li>
+      <li>Super Supporter: MyeongWon Cho</li>
+      <li>Producer: SeongJoon Kim</li>
+      <li>Refferance: codewars(www.codewars.com)</li>
+      
+      <a class="vanilla-coding-logo" href="https://www.vanillacoding.co">
+        <img src="https://d1sk7biawly96w.cloudfront.net/images/vc_logo@2x.png" />
+      </a>
+    </footer>    
+  </body>
+  <script>
+    const btnBack = document.querySelector('.back-button');
+    btnBack.addEventListener('click', () => {
+      history.back();
+    });
+  </script>
 </html>

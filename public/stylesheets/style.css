@@ -107,7 +107,7 @@ body {
   padding-top: 30px;
 }
 
-.problem-contents {
+.problems-contents {
   position: relative;
   display: inline-block;
   width: 350px;
@@ -119,27 +119,75 @@ body {
   border-radius: 10px;
 }
 
-.problem-title {
+.problems-title {
   padding: 60px 30px;
   font-size: 1.4rem;
   font-weight: bold;
   text-align: center;
 }
 
-.problem-level {
+.problems-level {
   position: absolute;
   bottom: 0;
   left: 0;
   padding: 20px;
-  color: white;
+  color: #F7CC36;
 }
 
-.problem-completor {
+.problems-completor {
   position: absolute;
   bottom: 0;
   right: 0;
   padding: 20px;
-  color: white;
+  color: #F7CC36;
+}
+
+.problem-box {
+  display: flex;
+  padding-top: 30px;
+}
+
+.problem-text {
+  width: 50%;
+  border-right: 3px solid white;
+  background-color: #253338;
+}
+
+.problem-title {
+  padding: 20px 0 20px 25px; 
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #F7CC36;
+}
+
+.problem-level {
+  padding: 10px 0 10px 25px;
+  color: black;  
+}
+
+.problem-completor {
+  padding: 10px 0 10px 25px;
+  color: black;  
+}
+
+.problem-description {
+  padding: 20px 0 20px 25px;
+  line-height: 41px;
+  width: 700px;
+  font-size: 1.2rem;
+  color: #DEE0E7;  
+}
+
+.code-form {
+  width: 50%;
+}
+
+.code-submit {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  font-size: 1.2rem;
+  background-color: #F7CC36;
 }
 
 .result-msg {
@@ -196,16 +244,18 @@ body {
 }
 
 .error-msg {
-  padding-left: 30px;
+  display: block;
+  text-align: center;
+  padding: 30px;
+  font-size: 5rem;
 }
 
 .error-status {
-  padding-left: 30px;
-}
-
-.error-stack-box {
-  width: 910px;
+  display: block;
+  text-align: center;
   padding: 30px;
+  font-size: 3.5rem;
+  font-weight: bold;
 }
 
 footer {

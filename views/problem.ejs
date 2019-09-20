@@ -19,12 +19,15 @@
       </div>
     </header>
 
-    <div>전투 훈련 시작!</div>
-    <div class="problem">
-      <div><%= problem.title %></div>
-      <div>완성한 사람: <%= problem.completed_users %></div>
-      <div>난이도: <%= problem.difficulty_level %></div>
-      <div><%= problem.description %></div>
+    <div class="second-title">- 전투 훈련 시작!</div>
+
+    <div class="problem-box">
+      <div class="problem-text">
+        <div class="problem-title"><%= problem.title %></div>
+        <div class="problem-completor">완성한 사람: <%= problem.completed_users %></div>
+        <div class="problem-level">난이도: <%= problem.difficulty_level %></div>
+        <div class="problem-description"><%= problem.description %></div>
+      </div>
       <form method="POST" action="../problems/<%= problem._id%>/solution" class="code-form">
           <textarea id="code-area" name="solution"></textarea>
           <input class="code-submit" type="submit" value="submit" />

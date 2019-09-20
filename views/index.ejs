@@ -19,10 +19,10 @@
     <div class="second-title">- 코딩 전쟁이 일어난다. 모든 대원들, 전투 준비!</div>
     <div class="problems">
       <% problems.forEach(problem => { %>
-        <a href="/problems/<%= problem._id %>" class="problem-contents" role="button">
-          <div class="problem-title"><%= problem.title %></div>
-          <div class="problem-completor"><%= problem.completed_users ? problem.completed_users : 0; %> completed</div>
-          <div class="problem-level">Level <%= problem.difficulty_level %></div>
+        <a href="/problems/<%= problem._id %>" class="problems-contents" role="button">
+          <div class="problems-title"><%= problem.title %></div>
+          <div class="problems-completor"><%= problem.completed_users ? problem.completed_users : 0; %> completed</div>
+          <div class="problems-level">Level <%= problem.difficulty_level %></div>
         </a>
       <% }); %>
     </div>

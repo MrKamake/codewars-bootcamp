@@ -14,7 +14,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 
-mongoose.connect(`${process.env.LOCAL_HOST_URL}`, {
+mongoose.connect(`${process.env.DATABASE_URL}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
